@@ -1,10 +1,7 @@
 "use strict";
-
-const table = "users";
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable(table, {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,12 +12,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      otp: {
-        type: Sequelize.INTEGER,
+      phone_number: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
+      otp: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+      },
       otp_expiration_date: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
       },
       createdAt: {
@@ -34,6 +35,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable(table);
+    await queryInterface.dropTable("Users");
   },
 };

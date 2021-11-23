@@ -12,13 +12,17 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    phone_number: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     otp: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     otp_expiration_date: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     createdAt: {
       allowNull: false,

@@ -25,4 +25,9 @@ app.use((req, res, next) => {
 
 app.use("/api", userRoutes);
 
+//////if route not found//////
+app.use((req, res) => {
+  res.status(404).send("INVALID URL PAGE NOT FOUND");
+});
+
 module.exports = app;
